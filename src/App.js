@@ -4,7 +4,7 @@ import {
   Route
 } from "react-router-dom";
 import Navbar from './components/Navbar'
-import Home from './Pages/Home';
+import Home from './components/Home';
 import FetchData from './components/FetchData';
 import Footer from './components/Footer';
 const App = () => {

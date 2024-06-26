@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const FetchData = ({cat}) => {
-  const [Data, setData] = useState("");
+  const [data, setData] = useState("");
   const fetchData = async () => {
     await axios
       .get(
         cat ? `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=fc1bbd1d8c83470eae968d2887456098`
-        : "https://newsapi.org/v2/top-headlines?country=in&apiKey=fc1bbd1d8c83470eae968d2887456098"
+        : `https://newsapi.org/v2/top-headlines?country=in&apiKey=fc1bbd1d8c83470eae968d2887456098`
       )
       .then((res) => setData(res.data.articles));
   };
@@ -21,8 +21,8 @@ const FetchData = ({cat}) => {
         <u>TOP HEADLINES</u>
       </h3>
       <div className="container d-flex justify-content-center align-items-center flex-column my-3 p-3" style={{minHeight:"100vh"}}>
-        {Data
-          ? Data.map((items, index) => (
+        {data
+          ? data.map((items) => (
               <>
                 <div
                   className="container my-3"
